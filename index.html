@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our School Profile Website</title>
+    <link rel="icon" href="assets/logo200px.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/logo50px.png">
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#our-profile">Our Profile</a></li>
+                <li><a href="#message-us">Message Us</a></li>
+            </ul>
+        </nav>
+        <div class="hero-banner">
+            <div class="slide active">
+                <img src="assets/a.jpg" class="banner-image">
+                <div class="slide-overlay"></div> <div class="slide-content">
+                    <h1>Selamat Datang di Our School!</h1>
+                    <p>Cerdas, Berkarakter, Berdaya Saing Global</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="assets/b.jpg" class="banner-image">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1>Our Vision</h1>
+                    <p>Menjadi sekolah unggulan yang menghasilkan generasi cerdas, berkarakter mulia, dan siap bersaing di tingkat nasional maupun global.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="assets/c.jpg" class="banner-image">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1>Our Mission</h1>
+                    <p>Menyelenggarakan pendidikan berkualitas untuk membentuk siswa yang cerdas, berkarakter, dan siap bersaing secara global.</p>
+                </div>
+            </div>
+            <p id="welcomeMessage"></p>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="home-section">
+            <h2>Halo <span id="userNamePlaceholder"></span>, Selamat Datang di Our School Website!</h2>
+            <div class="facilitation">
+                <h3>Fasilitas Kita</h3>
+                <div class="facilitation-items">
+                    <div class="item">
+                        <div class="circle">🎓</div> <p>Guru Yang Profesional</p>
+                    </div>
+                    <div class="item">
+                        <div class="circle">🏀</div>
+                        <p>Team Olahraga</p>
+                    </div>
+                    <div class="item">
+                        <div class="circle">📚</div>
+                        <p>Ruang Kelas yang Nyaman </p>
+                    </div>
+                </div>
+                <h3>Masih Banyak Lagi Yang Menanti Anda Dalam Mengembangkan Karakter yang Cerdas dan Siap Bersaing Secara Global.</h3>
+            </div>
+        </section>
+
+        <section id="our-profile" class="profile-section">
+            <h2>Our Profile</h2>
+            <div class="profile-content">
+                <h3>Tentang Our School</h3>
+                <p>
+                    Sekolah kami berkomitmen untuk menyediakan lingkungan belajar yang dinamis dan inovatif,
+                    mempersiapkan siswa untuk menjadi pemimpin masa depan. Didirikan pada tahun 2025,
+                    kami berdedikasi pada pengembangan holistik setiap siswa, tidak hanya dalam bidang akademik
+                    tetapi juga dalam karakter dan keterampilan hidup.
+                    Kami menawarkan kurikulum yang komprehensif, didukung oleh fasilitas modern dan tim pengajar yang
+                    berkualitas tinggi.
+                </p>
+                <h3>Visi & Misi</h3>
+                <h4>Visi:</h4>
+                <p>Menjadi sekolah unggulan yang menghasilkan generasi cerdas, berkarakter mulia, dan siap bersaing di tingkat nasional maupun global.</p>
+                <h4>Misi:</h4>
+                <ul>
+                    <li>Menyelenggarakan pendidikan yang berkualitas dan relevan dengan perkembangan zaman serta kebutuhan peserta didik.</li>
+
+                    <li>Membentuk siswa yang cerdas secara intelektual, emosional, dan spiritual melalui proses pembelajaran yang menyeluruh dan terpadu.</li>
+                    
+                    <li>Menanamkan nilai-nilai karakter positif seperti integritas, disiplin, tanggung jawab, serta kepedulian sosial dalam kehidupan sehari-hari.</li>
+                    
+                    <li>Mempersiapkan siswa agar mampu bersaing di tingkat global melalui penguasaan ilmu pengetahuan, teknologi, dan kemampuan berbahasa asing.</li>
+                    
+                    <li>Mendorong budaya belajar yang inovatif dan kreatif untuk membentuk generasi pembelajar sepanjang hayat.</li>
+                    
+                    <li>Menjalin kerja sama dengan berbagai pihak dalam dan luar negeri guna memperluas wawasan dan pengalaman siswa.</li>
+                </ul>
+                </div>
+        </section>
+
+        <section id="message-us" class="message-us-section">
+            <h2>Message Us</h2>
+            <div class="message-container">
+                <form id="messageForm" class="message-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" required>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+                <div class="submitted-messages">
+                    <h3>Submitted Messages</h3>
+                    <div id="displayMessages">
+                        </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Our School. All rights reserved.</p>
+    </footer>
+    <button id="backToTopBtn" title="Go to top">↑</button>
+    <script src="js/script.js"></script>
+</body>
+</html>
