@@ -1,0 +1,587 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+}
+
+/* Base styles for all elements to inherit box-sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #007bff;
+    flex-grow: 1;
+    text-align: left;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+/* Jika menggunakan logo gambar */
+.logo-img {
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    padding: 8px 0;
+    display: block;
+}
+
+nav ul li a:hover {
+    color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Hero Banner (Auto Slider with Images) */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Tinggi tetap untuk desktop */
+    overflow: hidden;
+    margin-top: 0;
+    background-color: #e0e0e0; /* Fallback background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1; /* Pastikan slide aktif berada di atas slide lain */
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Gambar di belakang konten teks */
+}
+
+/* Overlay untuk efek gelap pada gambar */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay hitam semi-transparan */
+    z-index: 1; /* Di atas gambar, di bawah teks */
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2; /* Teks di atas overlay */
+    text-align: center;
+    color: white;
+    padding: 20px;
+    max-width: 80%; /* Batasi lebar konten teks */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Shadow teks untuk kontras */
+}
+
+.slide-content h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.slide-content p {
+    font-size: 1.5em;
+    color: #f0f0f0;
+}
+
+#welcomeMessage {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+
+/* Sections */
+section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #007bff;
+    font-size: 2.5em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+/* Home Section */
+.home-section .facilitation {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.facilitation-items {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.facilitation-items .item {
+    text-align: center;
+    flex: 1 1 200px;
+    max-width: 280px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.facilitation-items .item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.item .circle {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5em;
+    box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+}
+.item p {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Profile Section */
+.profile-section .profile-content {
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.profile-section h3, .profile-section h4 {
+    color: #007bff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+.profile-section h4 {
+    font-size: 1.4em;
+    color: #333;
+    border-bottom: none;
+}
+.profile-section ul {
+    list-style: disc;
+    padding-left: 25px;
+}
+.profile-section ul li {
+    margin-bottom: 10px;
+}
+
+
+/* Message Us Section */
+.message-us-section .message-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.message-form, .submitted-messages {
+    flex: 1 1 45%;
+    min-width: 320px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.message-form {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.message-form .form-group {
+    margin-bottom: 20px;
+}
+
+.message-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.message-form input[type="text"],
+.message-form input[type="email"],
+.message-form input[type="tel"],
+.message-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.message-form input:focus,
+.message-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,123,255,0.2);
+}
+
+.message-form textarea {
+    resize: vertical;
+}
+
+.message-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    width: auto;
+}
+
+.message-form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+.submitted-messages {
+    background-color: #eef7ff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #cce5ff;
+    overflow-y: auto;
+    max-height: 450px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.submitted-messages h3 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.submitted-messages .message-item {
+    border-bottom: 1px dashed #a0d4ff;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.submitted-messages .message-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.submitted-messages p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+.submitted-messages p strong {
+    color: #222;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #222;
+    color: white;
+    margin-top: 50px;
+    font-size: 0.95em;
+}
+
+/* Responsive Design (Media Queries) */
+
+/* For screens smaller than 992px (e.g., tablets in landscape) */
+@media (max-width: 991.98px) {
+    .hero-banner {
+        height: 350px;
+    }
+    .slide-content h1 {
+        font-size: 2.5em;
+    }
+    .slide-content p {
+        font-size: 1.2em;
+    }
+    .message-form, .submitted-messages {
+        flex: 1 1 100%;
+    }
+    .message-container {
+        gap: 30px;
+    }
+}
+
+/* For screens smaller than 768px (e.g., tablets in portrait, larger phones) */
+@media (max-width: 767.98px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 1.5em;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    .hero-banner {
+        height: 300px;
+    }
+
+    .slide-content h1 {
+        font-size: 2em;
+    }
+    .slide-content p {
+        font-size: 1em;
+    }
+    .slide-content {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    section {
+        padding: 30px 15px;
+        margin: 20px auto;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    h2::after {
+        width: 60px;
+    }
+
+    .facilitation-items {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .facilitation-items .item {
+        flex: 1 1 90%;
+        max-width: 350px;
+        padding: 20px;
+    }
+
+    .item .circle {
+        width: 80px;
+        height: 80px;
+        font-size: 2em;
+    }
+
+    .profile-section h3, .profile-section h4 {
+        font-size: 1.5em;
+    }
+
+    .message-form, .submitted-messages {
+        padding: 20px;
+        min-width: unset;
+    }
+
+    .message-form button {
+        width: 100%;
+    }
+}
+
+/* For screens smaller than 480px (e.g., most mobile phones) */
+@media (max-width: 479.98px) {
+    .hero-banner {
+        height: 250px;
+    }
+
+    .slide-content h1 {
+        font-size: 1.6em;
+    }
+    .slide-content p {
+        font-size: 0.9em;
+    }
+    .slide-content {
+        padding: 10px;
+    }
+
+    section {
+        padding: 20px 10px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        margin-bottom: 25px;
+    }
+    h2::after {
+        width: 50px;
+    }
+
+    .facilitation-items .item {
+        max-width: 90%;
+    }
+
+    .item .circle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8em;
+    }
+
+    .message-form input,
+    .message-form textarea,
+    .message-form button {
+        font-size: 0.9em;
+    }
+    .submitted-messages p {
+        font-size: 0.9em;
+    }
+}
+
+#backToTopBtn {
+    display: none; /* Sembunyikan tombol secara default */
+    position: fixed; /* Tetapkan posisi di layar */
+    bottom: 30px; /* Jarak dari bawah */
+    right: 30px; /* Jarak dari kanan */
+    z-index: 99; /* Pastikan di atas elemen lain */
+    border: none; /* Hilangkan border */
+    outline: none; /* Hilangkan outline saat fokus */
+    background-color: #007bff; /* Warna latar belakang tombol */
+    color: white; /* Warna teks/ikon */
+    cursor: pointer; /* Ubah kursor saat di hover */
+    padding: 15px 20px; /* Padding untuk ukuran tombol */
+    border-radius: 50%; /* Membuat tombol bulat */
+    font-size: 1.5em; /* Ukuran teks/ikon */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Tambahkan shadow */
+    transition: background-color 0.3s, transform 0.2s; /* Transisi halus */
+}
+
+#backToTopBtn:hover {
+    background-color: #0056b3; /* Warna saat di hover */
+    transform: translateY(-3px); /* Efek melayang */
+}
+
+/* Responsiveness for the button */
+@media (max-width: 767.98px) {
+    #backToTopBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 16px;
+        font-size: 1.2em;
+    }
+}
